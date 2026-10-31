@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Young Serif", "Iowan Old Style", Georgia, serif;
+
+  /* Surfaces et encre */
+  --color-ground: #ebf0ea; /* brume : fond des pages */
+  --color-surface: #fafbf8; /* feuille : panneaux et tuiles */
+  --color-ink: #1d3328; /* encre conifère : titres et texte */
+  --color-muted: #566a5d; /* texte secondaire */
+  --color-line: #cbd7cc; /* traits fins */
+
+  /* Sens des couleurs : eau, soleil, alerte, jeune pousse */
+  --color-rain: #3b8ea5;
+  --color-rain-deep: #1f5e72;
+  --color-sun: #e2a12b;
+  --color-sun-deep: #7a5200;
+  --color-alert: #b8402f;
+  --color-leaf: #a6c93a;
+  --color-leaf-deep: #44600f;
+  --color-fern: #2f8f5b;
+  --color-fern-deep: #1d5a3a;
+  --color-dusk: #6a5da6;
+  --color-ember: #c2622a;
+
+  /* La rampe « green » de Tailwind devient la rampe conifère de l'application */
+  --color-green-50: #f1f6f1;
+  --color-green-100: #e2ebe3;
+  --color-green-200: #cbdace;
+  --color-green-300: #a5bfab;
+  --color-green-400: #73957e;
+  --color-green-500: #4a7a5b;
+  --color-green-600: #346647;
+  --color-green-700: #24573f;
+  --color-green-800: #1b4632;
+  --color-green-900: #1d3328;
+}
+
+@layer base {
+  html {
+    background: var(--color-ground);
+  }
+  body {
+    background: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-green-600);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+}
+
+@layer components {
+  /* Panneau : le seul contenant « boîte » de l'application */
+  .panel {
+    background: var(--color-surface);
+    border-radius: 1rem;
+    box-shadow: inset 0 0 0 1px var(--color-line);
+    padding: 1.25rem;
+  }
+
+  .btn,
+  .btn-quiet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.625rem;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    transition: background-color 0.15s, color 0.15s;
+    cursor: pointer;
+  }
+  .btn {
+    background: var(--color-green-700);
+    color: #fff;
+  }
+  .btn:hover {
+    background: var(--color-green-800);
+  }
+  .btn-quiet {
+    color: var(--color-green-800);
+    box-shadow: inset 0 0 0 1px var(--color-green-300);
+  }
+  .btn-quiet:hover {
+    background: var(--color-green-100);
+  }
+  .btn-text {
+    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--color-muted);
+    cursor: pointer;
+  }
+  .btn-text:hover {
+    color: var(--color-ink);
+  }
+  .btn-danger {
+    font-size: 0.8125rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--color-alert);
+    cursor: pointer;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.625rem;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px var(--color-line);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .field:hover {
+    box-shadow: inset 0 0 0 1px var(--color-green-300);
+  }
+  .field:focus {
+    outline: 2px solid var(--color-green-600);
+    outline-offset: 0;
+  }
+
+  /* Le seul moment animé : la jauge se remplit au chargement de la page */
+  .gauge-fill {
+    animation: gauge-fill 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes gauge-fill {
+  from {
+    width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gauge-fill {
+    animation: none;
+  }
+}

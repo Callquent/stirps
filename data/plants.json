@@ -1,0 +1,32 @@
+[
+  {
+    "name": "qsds",
+    "species": "qdsqdqsd",
+    "location": "sqdsqqs",
+    "light": "moyenne",
+    "wateringEveryDays": 7,
+    "lastWatered": "2026-10-23",
+    "notes": "dqsqsddqsd",
+    "id": "f3bd847c-44df-423d-8a72-a8d2a5cd9482",
+    "createdAt": "2026-10-29T09:41:30.899Z",
+    "waterings": [
+      "2026-10-23"
+    ],
+    "photos": [
+      {
+        "id": "1cac6c69-46b8-424d-98ba-4f509f4b44d7",
+        "file": "a7b034f5-95c7-4581-befd-3718cba8d6be.jpg",
+        "date": "2026-10-30",
+        "health": "bonne",
+        "note": ""
+      },
+      {
+        "id": "bbfe9fd2-0b08-4212-be54-04a771ad255f",
+        "file": "01fd4c67-f0a6-4d1d-ab85-aa862a7aaf4c.jpg",
+        "date": "2026-10-29",
+        "health": "bonne",
+        "note": ""
+      }
+    ]
+  }
+]
